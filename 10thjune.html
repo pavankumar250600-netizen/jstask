@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Dataset 1: Movies
+const movies = [
+  { id: 1, title: "Bahubali", rating: 9 },
+  { id: 2, title: "Pushpa", rating: 8 },
+  { id: 3, title: "RRR", rating: 10 },
+  { id: 4, title: "Salaar", rating: 7 }
+];
+
+// 1
+console.log("1:", movies.map(m => m.title));
+// 2
+console.log("2:", movies.map(m => m.rating));
+// 3
+console.log("3:", movies.map(m => ({ ...m, rating: m.rating + 1 })));
+// 4
+console.log("4:", movies.filter(m => m.rating > 8));
+// 5
+console.log("5:", movies.filter(m => m.rating < 9));
+// 6
+console.log("6:", movies.find(m => m.id === 3));
+// 7
+console.log("7:", movies.find(m => m.title === "Pushpa"));
+// 8
+console.log("8:", movies.reduce((sum, m) => sum + m.rating, 0));
+
+// Dataset 2: Products
+const products = [
+  { id: 1, name: "Laptop", price: 50000 },
+  { id: 2, name: "Mouse", price: 500 },
+  { id: 3, name: "Keyboard", price: 1500 },
+  { id: 4, name: "Monitor", price: 12000 }
+];
+
+// 9
+console.log("9:", products.map(p => p.name));
+// 10
+console.log("10:", products.map(p => p.price));
+// 11
+console.log("11:", products.map(p => ({ ...p, price: p.price + 1000 })));
+// 12
+console.log("12:", products.filter(p => p.price > 1000));
+// 13
+console.log("13:", products.filter(p => p.price < 10000));
+// 14
+console.log("14:", products.find(p => p.id === 2));
+// 15
+console.log("15:", products.find(p => p.name === "Monitor"));
+// 16
+console.log("16:", products.reduce((sum, p) => sum + p.price, 0));
+
+// Dataset 3: Cricket Scores
+const scores = [45, 80, 20, 100, 60];
+
+// 17
+console.log("17:", scores.map(s => s + 10));
+// 18
+console.log("18:", scores.map(s => s + 5));
+// 19
+console.log("19:", scores.filter(s => s > 50));
+// 20
+console.log("20:", scores.filter(s => s >= 80));
+// 21
+console.log("21:", scores.find(s => s > 70));
+// 22
+console.log("22:", scores.find(s => s === 100));
+// 23
+console.log("23:", scores.reduce((sum, s) => sum + s, 0));
+// 24
+console.log("24:", scores.reduce((sum, s) => sum + s, 0) / scores.length);
+
+// Dataset 4: Students
+const students = [
+  { name: "Ravi", marks: 90 },
+  { name: "Priya", marks: 75 },
+  { name: "Rahul", marks: 40 },
+  { name: "Anu", marks: 95 }
+];
+
+// 25
+console.log("25:", students.map(s => s.name));
+// 26
+console.log("26:", students.map(s => s.marks));
+// 27
+console.log("27:", students.map(s => ({ ...s, marks: s.marks + 5 })));
+// 28
+console.log("28:", students.filter(s => s.marks > 80));
+// 29
+console.log("29:", students.filter(s => s.marks < 50));
+// 30
+console.log("30:", students.find(s => s.name === "Rahul"));
+// 31
+console.log("31:", students.find(s => s.marks > 90));
+// 32
+console.log("32:", students.reduce((sum, s) => sum + s.marks, 0));
+
+// Dataset 5: Food Orders
+const foodOrders = [
+  { item: "Pizza", price: 300 },
+  { item: "Burger", price: 150 },
+  { item: "Biryani", price: 250 },
+  { item: "Ice Cream", price: 100 }
+];
+
+// 33
+console.log("33:", foodOrders.map(f => f.item));
+// 34
+console.log("34:", foodOrders.map(f => f.price));
+// 35
+console.log("35:", foodOrders.map(f => ({ ...f, price: f.price + 50 })));
+// 36
+console.log("36:", foodOrders.filter(f => f.price > 200));
+// 37
+console.log("37:", foodOrders.filter(f => f.price < 250));
+// 38
+console.log("38:", foodOrders.find(f => f.item === "Biryani"));
+// 39
+console.log("39:", foodOrders.find(f => f.price > 250));
+// 40
+console.log("40:", foodOrders.reduce((sum, f) => sum + f.price, 0));
+
+// Bonus
+// 41
+console.log("41:", movies.map(m => m.title.toUpperCase()));
+// 42
+console.log("42:", products.map(p => p.name.toLowerCase()));
+// 43
+console.log("43:", students.filter(s => s.name.startsWith("R")));
+// 44
+console.log("44:", movies.filter(m => m.title.length > 5));
+// 45
+console.log("45:", scores.reduce((sum, s) => sum + s, 0) + students.reduce((sum, s) => sum + s.marks, 0));
+// 46
+console.log("46:", products.reduce((max, p) => p.price > max.price ? p : max));
+// 47
+console.log("47:", Math.max(...scores));
+// 48
+console.log("48:", students.reduce((max, s) => s.marks > max.marks ? s : max));
+// 49
+console.log("49:", movies.reduce((max, m) => m.rating > max.rating ? m : max));
+// 50 (Custom Dataset: Books)
+const books = [
+  { title: "Book A", pages: 200 },
+  { title: "Book B", pages: 150 },
+  { title: "Book C", pages: 300 }
+];
+console.log("50a:", books.map(b => b.title));
+console.log("50b:", books.filter(b => b.pages > 200));
+console.log("50c:", books.filter(b => b.pages < 200));
+console.log("50d:", books.reduce((sum, b) => sum + b.pages, 0));
+console.log("50e:", books.reduce((max, b) => b.pages > max.pages ? b : max));
+
+    </script>
+</body>
+</html>
