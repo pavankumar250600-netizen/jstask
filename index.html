@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainSpark — Interactive General Knowledge Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-deco" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <span class="theme-icon" id="theme-icon">☾</span>
+  </button>
+
+  <main class="app">
+    <section id="welcome-screen" class="screen screen--active">
+      <div class="card card--welcome">
+        <div class="badge">General Knowledge</div>
+        <h1 class="title">BrainSpark</h1>
+        <p class="subtitle">
+          Test your wits with a curated set of general knowledge questions.
+          Answer carefully — every second counts.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-value" id="total-q-welcome">10</span>
+            <span class="stat-label">Questions</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">30s</span>
+            <span class="stat-label">Per Question</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="highscore-welcome">—</span>
+            <span class="stat-label">High Score</span>
+          </div>
+        </div>
+
+        <button id="start-btn" class="btn btn--primary btn--large">
+          Start Quiz <span class="btn-arrow">→</span>
+        </button>
+
+        <p class="hint">Use the navigation buttons to move between questions. Submit when you're ready.</p>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="screen">
+      <div class="card card--quiz">
+        <header class="quiz-header">
+          <div class="progress-info">
+            <span class="progress-text">
+              Question <span id="current-q">1</span> of <span id="total-q">10</span>
+            </span>
+            <span class="timer" id="timer">30s</span>
+          </div>
+          <div class="progress-bar" role="progressbar" aria-label="Quiz progress">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </header>
+
+        <div class="question-block">
+          <h2 class="question-text" id="question-text"></h2>
+          <ul class="options" id="options-list"></ul>
+        </div>
+
+        <footer class="quiz-footer">
+          <button id="prev-btn" class="btn btn--ghost" disabled><span>←</span> Previous</button>
+          <div class="dot-indicators" id="dot-indicators"></div>
+          <button id="next-btn" class="btn btn--primary">Next <span>→</span></button>
+          <button id="submit-btn" class="btn btn--accent hidden">Submit Quiz</button>
+        </footer>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen">
+      <div class="card card--result">
+        <div class="result-emoji" id="result-emoji">🎉</div>
+        <h2 class="result-title" id="result-title">Quiz Complete!</h2>
+        <p class="result-message" id="result-message"></p>
+
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120" class="ring-svg">
+            <circle cx="60" cy="60" r="52" class="ring-bg"></circle>
+            <circle cx="60" cy="60" r="52" class="ring-fg" id="ring-fg"></circle>
+          </svg>
+          <div class="ring-center">
+            <span class="ring-percent" id="ring-percent">0%</span>
+            <span class="ring-label">Score</span>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-tile">
+            <span class="tile-label">Total</span>
+            <span class="tile-value" id="r-total">0</span>
+          </div>
+          <div class="result-tile result-tile--correct">
+            <span class="tile-label">Correct</span>
+            <span class="tile-value" id="r-correct">0</span>
+          </div>
+          <div class="result-tile result-tile--wrong">
+            <span class="tile-label">Wrong</span>
+            <span class="tile-value" id="r-wrong">0</span>
+          </div>
+          <div class="result-tile">
+            <span class="tile-label">Score</span>
+            <span class="tile-value" id="r-score">0</span>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button id="review-btn" class="btn btn--ghost">Review Answers</button>
+          <button id="restart-btn" class="btn btn--primary">Restart Quiz <span>↻</span></button>
+        </div>
+
+        <div id="review-panel" class="review-panel hidden"></div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
